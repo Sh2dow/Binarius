@@ -24,6 +24,7 @@ namespace System.Windows.Forms
         /// </summary>
         [Category("Style")]
         [DisplayName("ToolStripForeColor")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Color ToolStripForeColor
         {
             get { return Properties.Settings.Default.ToolStripForeColor; }
@@ -39,6 +40,7 @@ namespace System.Windows.Forms
         /// </summary>
         [Category("Style")]
         [DisplayName("ToolStripBorder")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Color ToolStripBorder
         {
             get { return Properties.Settings.Default.ToolStripBorder; }
@@ -50,6 +52,7 @@ namespace System.Windows.Forms
         /// </summary>
         [Category("Style")]
         [DisplayName("ToolStripContentPanelGradientBegin")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Color ToolStripContentPanelGradientBegin
         {
             get { return Properties.Settings.Default.ToolStripContentPanelGradientBegin; }
@@ -61,6 +64,7 @@ namespace System.Windows.Forms
         /// </summary>
         [Category("Style")]
         [DisplayName("ToolStripContentPanelGradientEnd")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Color ToolStripContentPanelGradientEnd
         {
             get { return Properties.Settings.Default.ToolStripContentPanelGradientEnd; }
@@ -72,6 +76,7 @@ namespace System.Windows.Forms
         /// </summary>
         [Category("Style")]
         [DisplayName("ToolStripDropDownBackground")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Color ToolStripDropDownBackground
         {
             get { return Properties.Settings.Default.ToolStripDropDownBackground; }
@@ -83,6 +88,7 @@ namespace System.Windows.Forms
         /// </summary>
         [Category("Style")]
         [DisplayName("ToolStripGradientBegin")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Color ToolStripGradientBegin
         {
             get { return Properties.Settings.Default.ToolStripGradientBegin; }
@@ -94,6 +100,7 @@ namespace System.Windows.Forms
         /// </summary>
         [Category("Style")]
         [DisplayName("ToolStripGradientMiddle")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Color ToolStripGradientMiddle
         {
             get { return Properties.Settings.Default.ToolStripGradientMiddle; }
@@ -105,6 +112,7 @@ namespace System.Windows.Forms
         /// </summary>
         [Category("Style")]
         [DisplayName("ToolStripGradientEnd")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Color ToolStripGradientEnd
         {
             get { return Properties.Settings.Default.ToolStripGradientEnd; }

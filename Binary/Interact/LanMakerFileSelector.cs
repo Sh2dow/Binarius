@@ -1,4 +1,4 @@
-﻿using Binary.Properties;
+﻿﻿using Binary.Properties;
 
 using Endscript.Core;
 
@@ -6,6 +6,7 @@ using Nikki.Reflection.Abstract;
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
 
@@ -19,7 +20,14 @@ namespace Binary.Interact
         public int IconIndex { get; private set; }
         public bool WasCreated { get; private set; }
         public string RootPath { get; private set; }
-        public List<string> Files { get; set; }
+        private List<string> _files;
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public List<string> Files
+        {
+            get { return _files; }
+            set { _files = value; }
+        }
 
         public LanMakerFileSelector(string _rootpath) : this()
         {
@@ -30,6 +38,7 @@ namespace Binary.Interact
         {
             this.InitializeComponent();
             this.ToggleTheme();
+            this._files = new List<string>();
         }
 
         private void ToggleTheme()

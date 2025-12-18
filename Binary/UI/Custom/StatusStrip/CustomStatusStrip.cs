@@ -23,6 +23,7 @@ namespace System.Windows.Forms
         /// </summary>
         [Category("Style")]
         [DisplayName("StatusStripForeColor")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Color StatusStripForeColor
         {
             get { return Properties.Settings.Default.StatusStripForeColor; }
@@ -38,6 +39,7 @@ namespace System.Windows.Forms
         /// </summary>
         [Category("Style")]
         [DisplayName("StatusStripGradientBegin")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Color StatusStripGradientBegin
         {
             get { return Properties.Settings.Default.StatusStripGradientBegin; }
@@ -49,6 +51,7 @@ namespace System.Windows.Forms
         /// </summary>
         [Category("Style")]
         [DisplayName("StatusStripGradientEnd")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Color StatusStripGradientEnd
         {
             get { return Properties.Settings.Default.StatusStripGradientEnd; }
