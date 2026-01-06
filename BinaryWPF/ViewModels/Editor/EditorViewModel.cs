@@ -1163,6 +1163,11 @@ namespace BinaryWPF.ViewModels.Editor
                 line += split.Contains(' ') ? $"\"{split}\"" + space : split + space;
             }
 
+            if (args.Length == 0)
+            {
+                return line.TrimEnd();
+            }
+
             for (int loop = 0; loop < args.Length - 1; ++loop)
             {
                 string arg = args[loop];

@@ -214,7 +214,6 @@
             <Style TargetType="MenuItem">
                 <Setter Property="Background" Value="{DynamicResource MenuItemBackBrush}" />
                 <Setter Property="Foreground" Value="{DynamicResource MenuItemForeBrush}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource MenuItemBorderBrush}" />
                 <Style.Triggers>
                     <Trigger Property="IsHighlighted" Value="True">
                         <Setter Property="Background" Value="{DynamicResource MenuItemSelectedBrush}" />

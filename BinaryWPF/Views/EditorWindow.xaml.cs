@@ -19,6 +19,7 @@ namespace BinaryWPF.Views
             {
                 HelpVisible = false
             };
+            new ThemeService().ApplyPropertyGridTheme(_propertyGrid);
 
             PropertyGridHost.Child = _propertyGrid;
             _propertyGrid.PropertyValueChanged += PropertyGrid_PropertyValueChanged;

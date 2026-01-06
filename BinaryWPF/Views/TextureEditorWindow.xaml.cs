@@ -1,4 +1,5 @@
 using BinaryWPF.ViewModels.Editors;
+using BinaryWPF.Services;
 
 using System.Windows;
 using System.Windows.Controls;
@@ -23,6 +24,7 @@ namespace BinaryWPF.Views
             {
                 HelpVisible = false
             };
+            new ThemeService().ApplyPropertyGridTheme(_propertyGrid);
 
             _propertyGrid.PropertyValueChanged += PropertyGrid_PropertyValueChanged;
             PropertyGridHost.Child = _propertyGrid;
