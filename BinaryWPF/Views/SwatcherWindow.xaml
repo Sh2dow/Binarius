@@ -34,14 +34,14 @@
     <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding Blue}" VerticalAlignment="Center" />
 
     <StackPanel Grid.Row="3" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="0,12,0,0">
-      <Border Width="80" Height="80" Background="{Binding PreviewBrush}" BorderBrush="#333" BorderThickness="1" />
+      <Border Width="80" Height="80" Background="{Binding PreviewBrush}" BorderBrush="{DynamicResource RegBorderBrush}" BorderThickness="1" />
       <StackPanel Margin="12,0,0,0">
         <TextBlock Text="Paint Swatch" />
-        <TextBox Text="{Binding PaintSwatch}" IsReadOnly="True" />
+        <TextBox Text="{Binding PaintSwatch, Mode=OneWay}" IsReadOnly="True" />
         <TextBlock Text="Saturation" Margin="0,6,0,0" />
-        <TextBox Text="{Binding Saturation}" IsReadOnly="True" />
+        <TextBox Text="{Binding Saturation, Mode=OneWay}" IsReadOnly="True" />
         <TextBlock Text="Brightness" Margin="0,6,0,0" />
-        <TextBox Text="{Binding Brightness}" IsReadOnly="True" />
+        <TextBox Text="{Binding Brightness, Mode=OneWay}" IsReadOnly="True" />
       </StackPanel>
     </StackPanel>
 

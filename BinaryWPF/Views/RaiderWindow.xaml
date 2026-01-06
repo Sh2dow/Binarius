@@ -27,15 +27,15 @@
     </ComboBox>
 
     <TextBlock Grid.Row="1" Text="Bin Hash" VerticalAlignment="Center" />
-    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding BinHash, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding IsBinFileMode}" />
+    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding BinHash, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding IsBinFileMode}" />
     <Button Grid.Row="1" Grid.Column="2" Content="Copy" Click="CopyBinHash" />
 
     <TextBlock Grid.Row="2" Text="Bin File" VerticalAlignment="Center" />
-    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding BinFile, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding IsBinHashMode}" />
+    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding BinFile, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding IsBinHashMode}" />
     <Button Grid.Row="2" Grid.Column="2" Content="Copy" Click="CopyBinFile" />
 
     <TextBlock Grid.Row="3" Text="String" VerticalAlignment="Center" />
-    <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Result}" IsReadOnly="True" />
+    <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Result, Mode=OneWay}" IsReadOnly="True" />
     <Button Grid.Row="3" Grid.Column="2" Content="Copy" Click="CopyResult" />
   </Grid>
 </Window>

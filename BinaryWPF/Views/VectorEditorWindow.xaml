@@ -38,7 +38,7 @@
         </TreeView.ItemTemplate>
       </TreeView>
 
-      <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" Background="#333" />
+      <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" Background="{DynamicResource RegBorderBrush}" />
 
       <wfi:WindowsFormsHost x:Name="PropertyGridHost" Grid.Column="2" Margin="8" />
     </Grid>

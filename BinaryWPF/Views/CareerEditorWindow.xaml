@@ -42,8 +42,8 @@
               <Setter Property="IsExpanded" Value="False" />
               <Style.Triggers>
                 <DataTrigger Binding="{Binding IsHighlighted}" Value="True">
-                  <Setter Property="Background" Value="#FF2E3D3F" />
-                  <Setter Property="Foreground" Value="White" />
+                  <Setter Property="Background" Value="{DynamicResource FocusedBackBrush}" />
+                  <Setter Property="Foreground" Value="{DynamicResource FocusedForeBrush}" />
                 </DataTrigger>
               </Style.Triggers>
             </Style>
@@ -51,7 +51,7 @@
         </TreeView>
       </DockPanel>
 
-      <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" Background="#333" />
+      <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" Background="{DynamicResource RegBorderBrush}" />
 
       <wfi:WindowsFormsHost x:Name="PropertyGridHost" Grid.Column="2" Margin="8" />
     </Grid>

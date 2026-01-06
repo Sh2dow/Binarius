@@ -62,10 +62,10 @@
           <Style TargetType="DataGridRow">
             <Style.Triggers>
               <DataTrigger Binding="{Binding IsHighlighted}" Value="True">
-                <Setter Property="Background" Value="#FF2E3D3F" />
+                <Setter Property="Background" Value="{DynamicResource FocusedBackBrush}" />
               </DataTrigger>
               <DataTrigger Binding="{Binding IsModified}" Value="True">
-                <Setter Property="Background" Value="#FF2E2E5A" />
+                <Setter Property="Background" Value="{DynamicResource MenuItemSelectedBrush}" />
               </DataTrigger>
             </Style.Triggers>
           </Style>

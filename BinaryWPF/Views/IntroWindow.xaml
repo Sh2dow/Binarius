@@ -37,7 +37,7 @@
     </Style>
   </Window.Resources>
 
-  <Grid Margin="16" Background="{StaticResource MainBackBrush}">
+  <Grid Margin="16" Background="{DynamicResource MainBackBrush}">
     <Grid.RowDefinitions>
       <RowDefinition Height="Auto" />
       <RowDefinition Height="*" />

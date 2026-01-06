@@ -56,7 +56,7 @@
           <GridViewColumn Header="Color" Width="120">
             <GridViewColumn.CellTemplate>
               <DataTemplate>
-                <Border Background="{Binding Brush}" Height="18" Width="100" BorderBrush="#333" BorderThickness="1" />
+                <Border Background="{Binding Brush}" Height="18" Width="100" BorderBrush="{DynamicResource RegBorderBrush}" BorderThickness="1" />
               </DataTemplate>
             </GridViewColumn.CellTemplate>
           </GridViewColumn>

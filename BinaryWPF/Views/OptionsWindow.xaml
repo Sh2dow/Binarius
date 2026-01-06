@@ -6,7 +6,7 @@
         xmlns:vm="clr-namespace:BinaryWPF.ViewModels.Settings"
         mc:Ignorable="d"
         Title="Settings" Height="420" Width="520" WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize" WindowStyle="SingleBorderWindow">
+        ResizeMode="NoResize">
   <Window.DataContext>
     <vm:OptionsViewModel />
   </Window.DataContext>
