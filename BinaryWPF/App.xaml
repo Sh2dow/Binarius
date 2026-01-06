@@ -1,0 +1,264 @@
+﻿<Application x:Class="BinaryWPF.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:shell="clr-namespace:System.Windows.Shell;assembly=PresentationFramework"
+             ShutdownMode="OnMainWindowClose">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="MainBackColor">#FF1D1F23</Color>
+            <Color x:Key="MainForeColor">#FFF1F1F1</Color>
+            <Color x:Key="PanelBackColor">#FF2A2D33</Color>
+            <Color x:Key="AccentColor">#FF4AB0D9</Color>
+            <Color x:Key="TextBoxBackColor">#FF2A2D33</Color>
+            <Color x:Key="TextBoxForeColor">#FFE9E9E9</Color>
+            <Color x:Key="PrimBackColor">#FF1D1F23</Color>
+            <Color x:Key="PrimForeColor">#FFF1F1F1</Color>
+            <Color x:Key="MenuItemBackColor">#FF2A2D33</Color>
+            <Color x:Key="MenuItemForeColor">#FFF1F1F1</Color>
+            <Color x:Key="LabelTextColor">#FFE0E0E0</Color>
+            <Color x:Key="RegBorderColor">#FF3B3F46</Color>
+            <Color x:Key="FocusedBackColor">#FF3B5A6F</Color>
+            <Color x:Key="FocusedForeColor">#FFF1F1F1</Color>
+            <Color x:Key="StatusStripGradientBegin">#FF2A2D33</Color>
+            <Color x:Key="StatusStripGradientEnd">#FF23262B</Color>
+            <Color x:Key="MenuStripGradientBegin">#FF2A2D33</Color>
+            <Color x:Key="MenuStripGradientEnd">#FF23262B</Color>
+            <Color x:Key="MenuBorder">#FF3B3F46</Color>
+            <Color x:Key="MenuItemBorder">#FF3B3F46</Color>
+            <Color x:Key="MenuItemSelected">#FF3B5A6F</Color>
+            <Color x:Key="MenuItemSelectedGradientBegin">#FF3B5A6F</Color>
+            <Color x:Key="MenuItemSelectedGradientEnd">#FF2D3E4B</Color>
+
+            <SolidColorBrush x:Key="MainBackBrush" Color="{DynamicResource MainBackColor}" />
+            <SolidColorBrush x:Key="MainForeBrush" Color="{DynamicResource MainForeColor}" />
+            <SolidColorBrush x:Key="PanelBackBrush" Color="{DynamicResource PanelBackColor}" />
+            <SolidColorBrush x:Key="AccentBrush" Color="{DynamicResource AccentColor}" />
+            <SolidColorBrush x:Key="TextBoxBackBrush" Color="{DynamicResource TextBoxBackColor}" />
+            <SolidColorBrush x:Key="TextBoxForeBrush" Color="{DynamicResource TextBoxForeColor}" />
+            <SolidColorBrush x:Key="PrimBackBrush" Color="{DynamicResource PrimBackColor}" />
+            <SolidColorBrush x:Key="PrimForeBrush" Color="{DynamicResource PrimForeColor}" />
+            <SolidColorBrush x:Key="MenuItemBackBrush" Color="{DynamicResource MenuItemBackColor}" />
+            <SolidColorBrush x:Key="MenuItemForeBrush" Color="{DynamicResource MenuItemForeColor}" />
+            <SolidColorBrush x:Key="LabelTextBrush" Color="{DynamicResource LabelTextColor}" />
+            <SolidColorBrush x:Key="RegBorderBrush" Color="{DynamicResource RegBorderColor}" />
+            <SolidColorBrush x:Key="FocusedBackBrush" Color="{DynamicResource FocusedBackColor}" />
+            <SolidColorBrush x:Key="FocusedForeBrush" Color="{DynamicResource FocusedForeColor}" />
+            <SolidColorBrush x:Key="MenuBorderBrush" Color="{DynamicResource MenuBorder}" />
+            <SolidColorBrush x:Key="MenuItemBorderBrush" Color="{DynamicResource MenuItemBorder}" />
+            <SolidColorBrush x:Key="MenuItemSelectedBrush" Color="{DynamicResource MenuItemSelected}" />
+
+            <LinearGradientBrush x:Key="MenuStripGradientBrush" StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="{DynamicResource MenuStripGradientBegin}" Offset="0" />
+                <GradientStop Color="{DynamicResource MenuStripGradientEnd}" Offset="1" />
+            </LinearGradientBrush>
+
+            <LinearGradientBrush x:Key="StatusStripGradientBrush" StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="{DynamicResource StatusStripGradientBegin}" Offset="0" />
+                <GradientStop Color="{DynamicResource StatusStripGradientEnd}" Offset="1" />
+            </LinearGradientBrush>
+
+            <Style TargetType="Window">
+                <Setter Property="Background" Value="{DynamicResource MainBackBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource MainForeBrush}" />
+                <Setter Property="FontFamily" Value="Segoe UI" />
+                <Setter Property="WindowStyle" Value="None" />
+                <Setter Property="ResizeMode" Value="CanResize" />
+                <Setter Property="BorderThickness" Value="0" />
+                <Setter Property="BorderBrush" Value="{DynamicResource RegBorderBrush}" />
+                <Setter Property="shell:WindowChrome.WindowChrome">
+                    <Setter.Value>
+                        <shell:WindowChrome CaptionHeight="32"
+                                            CornerRadius="0"
+                                            GlassFrameThickness="0"
+                                            ResizeBorderThickness="6" />
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Window">
+                            <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    Background="{TemplateBinding Background}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="32" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <Grid Grid.Row="0"
+                                          Background="{DynamicResource MainBackBrush}"
+                                          shell:WindowChrome.IsHitTestVisibleInChrome="True">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Image Width="16" Height="16" Margin="8,8,6,8"
+                                               Source="{Binding Icon, RelativeSource={RelativeSource TemplatedParent}}"
+                                               Stretch="Uniform" />
+                                        <TextBlock Grid.Column="1" VerticalAlignment="Center"
+                                                   Text="{Binding Title, RelativeSource={RelativeSource TemplatedParent}}"
+                                                   Foreground="{DynamicResource MainForeBrush}" />
+
+                                        <StackPanel Grid.Column="2" Orientation="Horizontal"
+                                                    shell:WindowChrome.IsHitTestVisibleInChrome="True">
+                                            <Button x:Name="MinButton"
+                                                    Style="{StaticResource CaptionButtonStyle}"
+                                                    Command="{x:Static SystemCommands.MinimizeWindowCommand}"
+                                                    CommandParameter="{Binding RelativeSource={RelativeSource TemplatedParent}}">
+                                                <TextBlock Text="_" FontSize="14" />
+                                            </Button>
+                                            <Button x:Name="MaxButton"
+                                                    Style="{StaticResource CaptionButtonStyle}"
+                                                    Command="{x:Static SystemCommands.MaximizeWindowCommand}"
+                                                    CommandParameter="{Binding RelativeSource={RelativeSource TemplatedParent}}">
+                                                <TextBlock Text="□" FontSize="12" />
+                                            </Button>
+                                            <Button Style="{StaticResource CaptionCloseButtonStyle}"
+                                                    Command="{x:Static SystemCommands.CloseWindowCommand}"
+                                                    CommandParameter="{Binding RelativeSource={RelativeSource TemplatedParent}}">
+                                                <TextBlock Text="X" FontSize="12" />
+                                            </Button>
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <ContentPresenter Grid.Row="1" />
+                                </Grid>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="ResizeMode" Value="NoResize">
+                                    <Setter TargetName="MinButton" Property="Visibility" Value="Collapsed" />
+                                    <Setter TargetName="MaxButton" Property="Visibility" Value="Collapsed" />
+                                </Trigger>
+                                <Trigger Property="ResizeMode" Value="CanMinimize">
+                                    <Setter TargetName="MaxButton" Property="Visibility" Value="Collapsed" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="CaptionButtonStyle" TargetType="Button">
+                <Setter Property="Width" Value="44" />
+                <Setter Property="Height" Value="32" />
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="Foreground" Value="{DynamicResource MainForeBrush}" />
+                <Setter Property="BorderThickness" Value="0" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                <Setter Property="VerticalContentAlignment" Value="Center" />
+                <Setter Property="shell:WindowChrome.IsHitTestVisibleInChrome" Value="True" />
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="{DynamicResource MenuItemSelectedBrush}" />
+                    </Trigger>
+                    <Trigger Property="IsPressed" Value="True">
+                        <Setter Property="Background" Value="{DynamicResource FocusedBackBrush}" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style x:Key="CaptionCloseButtonStyle" TargetType="Button" BasedOn="{StaticResource CaptionButtonStyle}">
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="#FFB00020" />
+                        <Setter Property="Foreground" Value="White" />
+                    </Trigger>
+                    <Trigger Property="IsPressed" Value="True">
+                        <Setter Property="Background" Value="#FF8A0018" />
+                        <Setter Property="Foreground" Value="White" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style TargetType="TextBlock">
+                <Setter Property="Foreground" Value="{DynamicResource MainForeBrush}" />
+            </Style>
+
+            <Style TargetType="Label">
+                <Setter Property="Foreground" Value="{DynamicResource LabelTextBrush}" />
+            </Style>
+
+            <Style TargetType="Button">
+                <Setter Property="Foreground" Value="{DynamicResource MainForeBrush}" />
+                <Setter Property="Background" Value="{DynamicResource PanelBackBrush}" />
+                <Setter Property="Padding" Value="10,6" />
+                <Setter Property="BorderThickness" Value="0" />
+            </Style>
+
+            <Style TargetType="Menu">
+                <Setter Property="Background" Value="{DynamicResource MenuStripGradientBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource MenuItemForeBrush}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource MenuBorderBrush}" />
+            </Style>
+
+            <Style TargetType="MenuItem">
+                <Setter Property="Background" Value="{DynamicResource MenuItemBackBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource MenuItemForeBrush}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource MenuItemBorderBrush}" />
+                <Style.Triggers>
+                    <Trigger Property="IsHighlighted" Value="True">
+                        <Setter Property="Background" Value="{DynamicResource MenuItemSelectedBrush}" />
+                    </Trigger>
+                    <Trigger Property="IsSubmenuOpen" Value="True">
+                        <Setter Property="Background" Value="{DynamicResource MenuItemSelectedBrush}" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style TargetType="StatusBar">
+                <Setter Property="Background" Value="{DynamicResource StatusStripGradientBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource LabelTextBrush}" />
+            </Style>
+
+            <Style TargetType="TextBox">
+                <Setter Property="Background" Value="{DynamicResource TextBoxBackBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource TextBoxForeBrush}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource RegBorderBrush}" />
+            </Style>
+
+            <Style TargetType="ComboBox">
+                <Setter Property="Background" Value="{DynamicResource TextBoxBackBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource TextBoxForeBrush}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource RegBorderBrush}" />
+            </Style>
+
+            <Style TargetType="TreeView">
+                <Setter Property="Background" Value="{DynamicResource PrimBackBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource PrimForeBrush}" />
+            </Style>
+
+            <Style TargetType="ListBox">
+                <Setter Property="Background" Value="{DynamicResource PrimBackBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource PrimForeBrush}" />
+            </Style>
+
+            <Style TargetType="DataGrid">
+                <Setter Property="Background" Value="{DynamicResource PrimBackBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource PrimForeBrush}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource RegBorderBrush}" />
+            </Style>
+
+            <Style TargetType="DataGridColumnHeader">
+                <Setter Property="Background" Value="{DynamicResource PanelBackBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource MainForeBrush}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource RegBorderBrush}" />
+            </Style>
+
+            <Style TargetType="ComboBoxItem">
+                <Setter Property="Foreground" Value="{DynamicResource MainForeBrush}" />
+                <Setter Property="Background" Value="{DynamicResource PanelBackBrush}" />
+            </Style>
+
+            <Style TargetType="ListBoxItem">
+                <Setter Property="Foreground" Value="{DynamicResource MainForeBrush}" />
+            </Style>
+
+            <Style TargetType="TreeViewItem">
+                <Setter Property="Foreground" Value="{DynamicResource MainForeBrush}" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

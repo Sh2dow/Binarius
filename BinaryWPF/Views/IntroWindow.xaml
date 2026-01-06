@@ -1,0 +1,111 @@
+<Window x:Class="BinaryWPF.Views.IntroWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:BinaryWPF.ViewModels"
+        mc:Ignorable="d"
+        Title="Binarius" Height="420" Width="720" WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+  <Window.DataContext>
+    <vm:IntroViewModel />
+  </Window.DataContext>
+
+  <Window.Resources>
+    <Style x:Key="IconButtonStyle" TargetType="Button">
+      <Setter Property="Width" Value="64" />
+      <Setter Property="Height" Value="64" />
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderThickness" Value="0" />
+      <Setter Property="Padding" Value="0" />
+    </Style>
+    <Style x:Key="IntroPanelButtonStyle" TargetType="Button">
+      <Setter Property="Background" Value="{DynamicResource PanelBackBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource RegBorderBrush}" />
+      <Setter Property="BorderThickness" Value="1" />
+      <Setter Property="Padding" Value="0" />
+      <Setter Property="Cursor" Value="Hand" />
+      <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+      <Setter Property="VerticalContentAlignment" Value="Stretch" />
+    </Style>
+    <Style x:Key="IntroTitleButtonStyle" TargetType="Button">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderThickness" Value="0" />
+      <Setter Property="Padding" Value="0" />
+      <Setter Property="Foreground" Value="{DynamicResource MainForeBrush}" />
+      <Setter Property="HorizontalAlignment" Value="Left" />
+    </Style>
+  </Window.Resources>
+
+  <Grid Margin="16" Background="{StaticResource MainBackBrush}">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+
+    <Grid Grid.Row="0">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="64" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="64" />
+        <ColumnDefinition Width="64" />
+      </Grid.ColumnDefinitions>
+
+      <Button Grid.Column="0" Style="{StaticResource IconButtonStyle}" Command="{Binding OpenUpdatesCommand}" ToolTip="Check updates">
+        <Image Source="{Binding UpdatesImage}" Stretch="Uniform" />
+      </Button>
+
+      <Button Grid.Column="1" Style="{StaticResource IntroTitleButtonStyle}" Command="{Binding OpenAboutCommand}">
+        <TextBlock Text="Binarius" FontSize="30" FontWeight="Normal" />
+      </Button>
+
+      <Button Grid.Column="2" Style="{StaticResource IconButtonStyle}" ToolTip="Tools">
+        <Button.ContextMenu>
+          <ContextMenu>
+            <MenuItem Header="New Launcher" Command="{Binding OpenLauncherCommand}" />
+            <MenuItem Header="Hasher" Command="{Binding OpenHasherCommand}" />
+            <MenuItem Header="Raider" Command="{Binding OpenRaiderCommand}" />
+            <MenuItem Header="Swatcher" Command="{Binding OpenSwatcherCommand}" />
+            <Separator />
+            <MenuItem Header="Settings" Command="{Binding OpenOptionsCommand}" />
+          </ContextMenu>
+        </Button.ContextMenu>
+        <Image Source="{Binding ToolsImage}" Stretch="Uniform" />
+      </Button>
+
+      <Button Grid.Column="3" Style="{StaticResource IconButtonStyle}" Command="{Binding OpenThemeCommand}" ToolTip="Change theme">
+        <Image Source="{Binding ThemeImage}" Stretch="Uniform" />
+      </Button>
+    </Grid>
+
+    <StackPanel Grid.Row="1" Margin="0,10,0,0" VerticalAlignment="Top">
+      <Button Style="{StaticResource IntroPanelButtonStyle}" Command="{Binding OpenUserCommand}" Height="132">
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="128" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+          <Image Source="{Binding UserImage}" Width="128" Height="128" Margin="1" Stretch="Uniform" ToolTip="Launch Binarius for Users" />
+          <StackPanel Grid.Column="1" Margin="10,8,8,8" VerticalAlignment="Center">
+            <TextBlock Text="User Mode" FontSize="18" FontWeight="Bold" />
+            <TextBlock Text="Install a mod" Margin="0,4,0,0" />
+          </StackPanel>
+        </Grid>
+      </Button>
+
+      <Button Style="{StaticResource IntroPanelButtonStyle}" Command="{Binding OpenModderCommand}" Height="132" Margin="0,6,0,0">
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="128" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+          <Image Source="{Binding ModderImage}" Width="128" Height="128" Margin="1" Stretch="Uniform" ToolTip="Launch Binarius for Modders" />
+          <StackPanel Grid.Column="1" Margin="10,8,8,8" VerticalAlignment="Center">
+            <TextBlock Text="Modder Mode" FontSize="18" FontWeight="Bold" />
+            <TextBlock Text="Create a mod" Margin="0,4,0,0" />
+          </StackPanel>
+        </Grid>
+      </Button>
+    </StackPanel>
+  </Grid>
+</Window>

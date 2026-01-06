@@ -1,0 +1,54 @@
+<Window x:Class="BinaryWPF.Views.SwatcherWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:BinaryWPF.ViewModels.Tools"
+        Title="Swatcher" Height="420" Width="520" WindowStartupLocation="CenterScreen">
+  <Window.DataContext>
+    <vm:SwatcherViewModel />
+  </Window.DataContext>
+
+  <Grid Margin="18">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="120" />
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="80" />
+    </Grid.ColumnDefinitions>
+
+    <TextBlock Text="Red" VerticalAlignment="Center" />
+    <Slider Grid.Column="1" Minimum="0" Maximum="255" Value="{Binding Red}" />
+    <TextBlock Grid.Column="2" Text="{Binding Red}" VerticalAlignment="Center" />
+
+    <TextBlock Grid.Row="1" Text="Green" VerticalAlignment="Center" />
+    <Slider Grid.Row="1" Grid.Column="1" Minimum="0" Maximum="255" Value="{Binding Green}" />
+    <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding Green}" VerticalAlignment="Center" />
+
+    <TextBlock Grid.Row="2" Text="Blue" VerticalAlignment="Center" />
+    <Slider Grid.Row="2" Grid.Column="1" Minimum="0" Maximum="255" Value="{Binding Blue}" />
+    <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding Blue}" VerticalAlignment="Center" />
+
+    <StackPanel Grid.Row="3" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="0,12,0,0">
+      <Border Width="80" Height="80" Background="{Binding PreviewBrush}" BorderBrush="#333" BorderThickness="1" />
+      <StackPanel Margin="12,0,0,0">
+        <TextBlock Text="Paint Swatch" />
+        <TextBox Text="{Binding PaintSwatch}" IsReadOnly="True" />
+        <TextBlock Text="Saturation" Margin="0,6,0,0" />
+        <TextBox Text="{Binding Saturation}" IsReadOnly="True" />
+        <TextBlock Text="Brightness" Margin="0,6,0,0" />
+        <TextBox Text="{Binding Brightness}" IsReadOnly="True" />
+      </StackPanel>
+    </StackPanel>
+
+    <StackPanel Grid.Row="4" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,12,0,0">
+      <Button Content="Copy Swatch" Click="CopySwatch" Margin="0,0,8,0" />
+      <Button Content="Copy Sat" Click="CopySaturation" Margin="0,0,8,0" />
+      <Button Content="Copy Bright" Click="CopyBrightness" />
+    </StackPanel>
+  </Grid>
+</Window>

@@ -1,0 +1,82 @@
+<Window x:Class="BinaryWPF.Views.StringEditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="String Editor" Height="520" Width="920" WindowStartupLocation="CenterScreen"
+        MinWidth="760" MinHeight="480">
+  <DockPanel>
+    <Menu DockPanel.Dock="Top">
+      <MenuItem Header="String">
+        <MenuItem Header="Add String" Command="{Binding AddStringCommand}" InputGestureText="Ctrl+S" />
+        <MenuItem Header="Remove String" Command="{Binding RemoveStringCommand}" InputGestureText="Ctrl+D" />
+        <MenuItem Header="Edit String" Command="{Binding EditStringCommand}" InputGestureText="Ctrl+E" />
+      </MenuItem>
+      <MenuItem Header="Options">
+        <MenuItem Header="Find and Replace" Command="{Binding ReplaceCommand}" InputGestureText="Ctrl+R" />
+        <MenuItem Header="Find Previous" Command="{Binding FindPreviousCommand}" InputGestureText="F3" />
+        <MenuItem Header="Find Next" Command="{Binding FindNextCommand}" InputGestureText="F6" />
+      </MenuItem>
+      <MenuItem Header="Tools">
+        <MenuItem Header="Hasher" Command="{Binding HasherCommand}" InputGestureText="Alt+H" />
+        <MenuItem Header="Raider" Command="{Binding RaiderCommand}" InputGestureText="Alt+R" />
+      </MenuItem>
+    </Menu>
+
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+
+      <Grid Grid.Row="0" Margin="10">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
+          <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+            <TextBlock Text="Search by Key" Width="120" VerticalAlignment="Center" />
+            <TextBox Text="{Binding SearchKey, UpdateSourceTrigger=PropertyChanged}" />
+          </StackPanel>
+          <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+            <TextBlock Text="Search by Label" Width="120" VerticalAlignment="Center" />
+            <TextBox Text="{Binding SearchLabel, UpdateSourceTrigger=PropertyChanged}" />
+          </StackPanel>
+          <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Search by Text" Width="120" VerticalAlignment="Center" />
+            <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" />
+          </StackPanel>
+        </StackPanel>
+
+        <TextBox Grid.Column="1" Margin="10,0,0,0" Height="88" TextWrapping="Wrap" AcceptsReturn="True"
+                 VerticalScrollBarVisibility="Auto" Text="{Binding EditorText, UpdateSourceTrigger=PropertyChanged}" />
+      </Grid>
+
+      <DataGrid Grid.Row="1" Margin="10" AutoGenerateColumns="False" IsReadOnly="True"
+                ItemsSource="{Binding Records}" SelectedItem="{Binding SelectedRecord}"
+                Sorting="DataGrid_Sorting">
+        <DataGrid.Resources>
+          <Style TargetType="DataGridRow">
+            <Style.Triggers>
+              <DataTrigger Binding="{Binding IsHighlighted}" Value="True">
+                <Setter Property="Background" Value="#FF2E3D3F" />
+              </DataTrigger>
+              <DataTrigger Binding="{Binding IsModified}" Value="True">
+                <Setter Property="Background" Value="#FF2E2E5A" />
+              </DataTrigger>
+            </Style.Triggers>
+          </Style>
+        </DataGrid.Resources>
+        <DataGrid.Columns>
+          <DataGridTextColumn Header="Index" Binding="{Binding Index}" Width="60" />
+          <DataGridTextColumn Header="Key" Binding="{Binding Key}" Width="120" />
+          <DataGridTextColumn Header="Label" Binding="{Binding Label}" Width="200" />
+          <DataGridTextColumn Header="Text" Binding="{Binding Text}" Width="*" />
+        </DataGrid.Columns>
+      </DataGrid>
+    </Grid>
+  </DockPanel>
+</Window>

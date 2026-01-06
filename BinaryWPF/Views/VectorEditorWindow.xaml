@@ -1,0 +1,46 @@
+<Window x:Class="BinaryWPF.Views.VectorEditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wfi="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
+        mc:Ignorable="d"
+        Title="Vector Editor" Height="520" Width="860" WindowStartupLocation="CenterScreen"
+        MinWidth="720" MinHeight="480">
+  <DockPanel>
+    <Menu DockPanel.Dock="Top">
+      <MenuItem Header="Main">
+        <MenuItem Header="Import SVG" Command="{Binding ImportSvgCommand}" InputGestureText="Ctrl+I" />
+        <MenuItem Header="Export SVG" Command="{Binding ExportSvgCommand}" InputGestureText="Ctrl+E" />
+        <MenuItem Header="Preview" Command="{Binding PreviewCommand}" InputGestureText="Ctrl+P" />
+      </MenuItem>
+      <MenuItem Header="Paths">
+        <MenuItem Header="Add PathSet" Command="{Binding AddPathSetCommand}" InputGestureText="Ctrl+A" />
+        <MenuItem Header="Remove PathSet" Command="{Binding RemovePathSetCommand}" InputGestureText="Ctrl+D" />
+        <Separator />
+        <MenuItem Header="Move PathSet Up" Command="{Binding MoveUpPathSetCommand}" InputGestureText="Ctrl+U" />
+        <MenuItem Header="Move PathSet Down" Command="{Binding MoveDownPathSetCommand}" InputGestureText="Ctrl+O" />
+      </MenuItem>
+    </Menu>
+
+    <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="300" />
+        <ColumnDefinition Width="5" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+
+      <TreeView Grid.Column="0" Margin="8" ItemsSource="{Binding Nodes}" SelectedItemChanged="TreeView_SelectedItemChanged">
+        <TreeView.ItemTemplate>
+          <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+            <TextBlock Text="{Binding Name}" />
+          </HierarchicalDataTemplate>
+        </TreeView.ItemTemplate>
+      </TreeView>
+
+      <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" Background="#333" />
+
+      <wfi:WindowsFormsHost x:Name="PropertyGridHost" Grid.Column="2" Margin="8" />
+    </Grid>
+  </DockPanel>
+</Window>

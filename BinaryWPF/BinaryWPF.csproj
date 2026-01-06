@@ -1,0 +1,58 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>..\Binary\binarius.ico</ApplicationIcon>
+    <Version>2.10.4</Version>
+    <Authors>MaxHwoy</Authors>
+    <Company>MaxHwoy, rx, avail, Sh2dow, NI240SX and nlgxzef</Company>
+    <Description>Tool for editing Need for Speed binary files (.BIN, .BUN, .LZC).</Description>
+    <AssemblyName>BinaryWPF</AssemblyName>
+    <Product>Binarius</Product>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\CoreExtensions\CoreExtensions\CoreExtensions.csproj" />
+    <ProjectReference Include="..\..\Endscript\Endscript\Endscript.csproj" />
+    <ProjectReference Include="..\..\ILWrapper\ILWrapper\ILWrapper.csproj" />
+    <ProjectReference Include="..\..\Darius\Nikki\Nikki.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="..\Binary\Resources\*.png">
+      <Link>Resources\%(Filename)%(Extension)</Link>
+    </Resource>
+    <Resource Include="..\Binary\binarius.ico">
+      <Link>Resources\binarius.ico</Link>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Configurations.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Configurations.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(ProjectDir)..\Binary\Data\*.*&quot; &quot;$(TargetDir)&quot; /Y /I /E" />
+  </Target>
+
+</Project>
