@@ -375,7 +375,7 @@ namespace Binary.UI
 					{
 
 						using var bw = new BinaryWriter(File.Open(path, FileMode.Create));
-						bw.Write(texture.GetDDSArray(false));
+						texture.WriteDDS(bw, false);
 
 					}
 					else
@@ -416,9 +416,8 @@ namespace Binary.UI
 				{
 
 					var path = Path.Combine(browser.SelectedPath, texture.CollectionName) + ".dds";
-					var data = texture.GetDDSArray(false);
 					using var bw = new BinaryWriter(File.Open(path, FileMode.Create));
-					bw.Write(data);
+					texture.WriteDDS(bw, false);
 
 				}
 

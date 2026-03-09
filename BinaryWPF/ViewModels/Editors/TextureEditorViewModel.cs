@@ -304,7 +304,7 @@ namespace BinaryWPF.ViewModels.Editors
                 if (ext == ImageType.DDS)
                 {
                     using var bw = new BinaryWriter(File.Open(path, FileMode.Create));
-                    bw.Write(SelectedTexture.Texture.GetDDSArray(false));
+                    SelectedTexture.Texture.WriteDDS(bw, false);
                 }
                 else
                 {
@@ -332,9 +332,8 @@ namespace BinaryWPF.ViewModels.Editors
             foreach (Texture texture in _tpk.GetTextures())
             {
                 var path = Path.Combine(browser.SelectedPath, texture.CollectionName) + ".dds";
-                var data = texture.GetDDSArray(false);
                 using var bw = new BinaryWriter(File.Open(path, FileMode.Create));
-                bw.Write(data);
+                texture.WriteDDS(bw, false);
             }
 
             MessageBox.Show("All textures have been exported", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
